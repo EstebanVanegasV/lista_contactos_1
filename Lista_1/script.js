@@ -53,3 +53,16 @@ function imprimirConsola() {
 }
 //5
 const gitHub = "Subiendo a Git Hub";
+
+//Lista de contactos #2
+const crearContacto = {
+  id: 1,
+  nombres: "Juan Esteban",
+  apellidos: "Vanegas Vela",
+  telefono: 3175453697,
+  ubicacion: { a: "Mosquera Cundinamarca", b: "cra 7 # 12-56" },
+};
+function agregarNuevo(contacto) {
+  listaDeContactos.push(contacto);
+}
+agregarNuevo(crearContacto);
