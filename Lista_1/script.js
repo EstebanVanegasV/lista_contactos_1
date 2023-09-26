@@ -22,10 +22,10 @@
 //segunda solucion
 //1
 let listaDeContactos = [
-  { nombre: "Estebillan Vanegas", telefono: "3232898905" },
-  { nombre: "La Pola Salavarrieta", telefono: "2345678901" },
-  { nombre: "Angela Camacho", telefono: "3126789423" },
-  { nombre: "Ada Lovelace", telefono: "3156783415" },
+  { id: 2, nombre: "Estebillan Vanegas", telefono: "3232898905" },
+  { id: 3, nombre: "La Pola Salavarrieta", telefono: "2345678901" },
+  { id: 4, nombre: "Angela Camacho", telefono: "3126789423" },
+  { id: 5, nombre: "Ada Lovelace", telefono: "3156783415" },
 ];
 console.log(listaDeContactos);
 
@@ -66,3 +66,23 @@ function agregarNuevo(contacto) {
   listaDeContactos.push(contacto);
 }
 agregarNuevo(crearContacto);
+
+//review funcion actualizar
+function actualizarContacto(id, nuevoContacto) {
+  const contactoExistente = listaDeContactos.find(
+    (contacto) => contacto.id === id
+  );
+  if (!contactoExistente) {
+    return "no se encontro contacto con ese id";
+  }
+  contactoExistente.nombre = nuevoContacto.nombre;
+  contactoExistente.telefono = nuevoContacto.telefono;
+  return "Contacto actualizado";
+}
+const nuevoContacto = {
+  id: 2,
+  nombre: "Carol Leon",
+  telefono: 3176252408,
+};
+const resultado = actualizarContacto(nuevoContacto.id, nuevoContacto);
+console.log(resultado);
