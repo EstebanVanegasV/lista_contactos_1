@@ -42,7 +42,7 @@ function agregarContacto(id, nombres, apellidos, telefono, ciudad, direccion) {
       direccion,
     },
   };
-  contacto.push(nuevoContacto);
+  contactos.push(nuevoContacto);
   console.log(`Se ha añadido a ${nombre} ${apellido} a la lista.`);
 }
 
@@ -51,9 +51,19 @@ function borrarContacto(id) {
   if (index !== -1) {
     const contactoEliminado = contactos.splice(index, 1)[0];
     console.log(
-      `Se ha eliminado a ${contactoEliminado.nombre} ${contactoEliminado.apellido} de la lista`
+      `Se ha eliminado a ${contactoEliminado.nombres} ${contactoEliminado.apellidos} de la lista`
     );
   } else {
-    console.error("Indice de contacto invalido.");
+    console.error("ID de contacto invalido.");
+  }
+}
+
+function actualizarContacto(id, nuevosDatos) {
+  const index = contactos.findIndex((contacto) => contacto.id === id);
+  if (index !== -1) {
+    contactos[index] = { ...contactos[index], ...nuevosDatos }; //tecnica "spread"
+    console.log(`Se ha actualizado el contacto ${id}.`);
+  } else {
+    console.log("ID de contacto invalido.");
   }
 }
